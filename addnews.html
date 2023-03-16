@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Add News</title>
+</head>
+<body>
+
+    <main class="container">
+        <header>
+            <nav class="nav-wrapper">
+                <div class="logo-title">
+                    <a href="newshome.html" class="logo-title"></a>
+                </div>
+
+                <div class="searchnews">
+                    <span class="text-dim">Search news...</span>
+                    <img src="" alt="search" />
+                </div>
+    
+                <div class="addnews-btn">
+                    <span>Add News</span>
+                </div>
+            </nav>
+        </header>
+        <div class="center-main">
+            <!-- Add News Form -->
+        <div id="err-msg"></div>
+    <form class="form">
+        <label for="author">
+            <input type="text" placeholder="Your name" aria-label="given-names" autocomplete="off" class="news-author" name="author" required/>    
+        </label>
+        <label for="avatar">
+            <input type="hidden" class="news-author" name="avatar" id="check-for-avatar"/>    
+        </label>
+        <img src="" alt="author avatar" class="author-image" id="set-avatar">
+        <label for="title">
+            <input type="text" placeholder="Enter news title" class="news-title" name="title" required/>
+        </label>
+        <label for="url">
+            <input type="text" placeholder="Your website" autocomplete="off" class="news-author" name="url"/>
+        </label>
+        <span class="choose--avatar">Choose Avatar</span>
+        <div class="avatar"></div>
+        
+
+        <!-- <script>
+            
+        </script> -->
+        <button type="submit" class="addnews-btn">Post News</button>
+    </form>
+    <!-- Form End Here-->
+        </div>
+    </main>
+
+    <script src="endpoints/api.js"></script>
+    <script src="js/addnews.js"></script>
+</body>
+</html>

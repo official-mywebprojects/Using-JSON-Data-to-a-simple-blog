@@ -1,0 +1,51 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Single News</title>
+</head>
+<body>
+    <main class="container">
+        <header>
+            <nav class="nav-wrapper">
+                <div class="logo-title">
+                    <a href="newshome.html" class="logo-title"></a>
+                </div>
+
+                <div class="searchnews">
+                    <span class="text-dim">Search news...</span>
+                    <img src="" alt="search" />
+                </div>
+    
+                <div class="addnews-btn">
+                    <span>Add News</span>
+                </div>
+            </nav>
+        </header>
+        <div class="center-main">
+
+        </div>
+    </main>
+    <div class="comment-area center-main">
+        <div class="has-comments">
+            <h3>Leave a comment</h3>
+        </div>
+        <!-- News Comments -->
+        <div class="comment-box">
+            <form action="">
+                <textarea name="text" class="comment" id="comment" cols="30" rows="10"></textarea>
+                <label for="name">
+                    <input type="text" aria-label="given-names" autocomplete="off" name="name" id="name" />
+                </label>
+                <button type="submit" class="submit-btn">Submit Comment</button>
+            </form>
+        </div>
+    </div>
+
+
+    <script src="endpoints/api.js"></script>
+    <script src="js/singlenews.js"></script>
+</body>
+</html>

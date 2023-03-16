@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="container">
+        <header>
+            <nav class="nav-wrapper">
+                <div class="logo-title">
+                    <a href="newshome.html" class="logo-title"></a>
+                </div>
+
+                <div class="searchnews">
+                    <span class="text-dim">Search News...</span>
+                </div>
+    
+                <div class="addnews-btn">
+                    <a href="addnews.html">Add News</a>
+                </div>
+            </nav>
+        </header>
+        
+        <main class="center-main">
+            <h1>Read<span class="span--accent">News</span>as it happen...</h1>
+            <p>Do you have an interesting story to share? The world is waiting to read your story. Post your story for people to read.</p>
+            
+            <div class="allnews-wrapper"></div>
+            
+            
+            <!-- News Pagination -->
+            <div class="pagination">
+                <span class="text-dim"><< Previous</span>
+                <span class="text-dim">Next >></span>
+            </div>
+        </main>
+    </div>
+
+    <script src="endpoints/api.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        (function loader(){
+            const isloadingCss = `
+                <style>
+                    .sm--txt{
+                        width: 100%;
+                        height: 10px;
+                        padding: 0;
+                        margin: 3px 0;
+                    }
+                    .bg--txt{
+                        width: 100%;
+                        height: 50px;
+                    }
+
+                    div.news-comment, div.news-author{
+                        width: 100px;
+                        height: 10px;
+                        margin-left: -5px;
+                    }
+                    div.news-author{
+                        width: 100px;
+                        height: 20px;
+                        margin-left: 20px;
+                    }
+
+                    .author-image img{
+                        border-radius: 50px;
+                    }
+
+                    .ui--loading{
+                        border-radius: var(--rd-sm);
+                        animation: 700ms linear infinite alternate ui-loading;
+                    }
+                    @keyframes ui-loading{
+                        0%{
+                            background: hsl(var(--background-lgt));
+                        }
+
+                        100%{
+                            background: hsl(var(--span-account) / .2);
+                        }
+                    }
+                </style>
+            `;
+            const isloading = `
+            <div class="allnews-wrapper">
+                <div class="newstemplate">
+                    <a href="news.html" target="_blanc" class="news-title ui--loading bg--txt"></a>
+                    <p class="ui--loading sm--txt"></p>
+                    <p class="ui--loading sm--txt"></p>
+                    <p class="ui--loading sm--txt"></p>
+                    <p class="ui--loading sm--txt"></p>
+                    <div class="news-details">
+                        <div class="ui--loading author-image">
+                            <img class="ui--loading">
+                        </div>
+                        <div class="ui--loading news-author">
+                            <div class="news-author"></div>
+                        </div>
+                    </div>
+                    <div class="news-details">
+                        <div class="ui--loading news-comment">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            `;
+
+            document.querySelector(".allnews-wrapper").innerHTML = [isloadingCss, isloading.repeat(3)].join('');
+        })();
+        
+    </script>
+</body>
+</html>
