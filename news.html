@@ -16,7 +16,6 @@
 
                 <div class="searchnews">
                     <span class="text-dim">Search news...</span>
-                    <img src="" alt="search" />
                 </div>
     
                 <div class="addnews-btn">
@@ -24,28 +23,42 @@
                 </div>
             </nav>
         </header>
+        <div class="center-main"></div>
         <div class="center-main">
-
-        </div>
-    </main>
-    <div class="comment-area center-main">
+        <!--div class="comment-area center-main"-->
         <div class="has-comments">
-            <h3>Leave a comment</h3>
+            <div id="commentBox"></div>
         </div>
-        <!-- News Comments -->
+        <div class="has-comments">
+            <h3>Add comment to news</h3>
+        </div>
+            <!-- News Comments -->
         <div class="comment-box">
-            <form action="">
-                <textarea name="text" class="comment" id="comment" cols="30" rows="10"></textarea>
-                <label for="name">
-                    <input type="text" aria-label="given-names" autocomplete="off" name="name" id="name" />
+            <form class="form-comment">
+                <label for="newsId">
+                    <input type="hidden" name="newsId" id="newsId" />
                 </label>
+                <label for="name">
+                    <input type="text" aria-label="given-names" autocomplete="off" placeholder="Your name" name="name" id="name" required />
+                </label>
+                <label for="avatar">
+                    <input type="hidden" name="avatar" id="avatar" />
+                </label>
+                <img src="" alt="author avatar" class="author-image" id="set-avatar">
+                <textarea type="text" class="comment" placeholder="Add a comment" name="comment" id="comment" cols="30" rows="10" required></textarea>
+                <span class="choose--avatar">Choose Avatar</span>
+                <div class="avatar"></div>
                 <button type="submit" class="submit-btn">Submit Comment</button>
             </form>
         </div>
     </div>
+    </main>
 
 
     <script src="endpoints/api.js"></script>
     <script src="js/singlenews.js"></script>
+    <script src="js/addcomment.js"></script>
+    <script src="js/getnewscomments.js"></script>
+    <script src="js/update.js"></script>
 </body>
 </html>

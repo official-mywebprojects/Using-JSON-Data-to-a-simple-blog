@@ -13,7 +13,8 @@
         <header>
             <nav class="nav-wrapper">
                 <div class="logo-title">
-                    <a href="newshome.html" class="logo-title"></a>
+                    <a href="newshome.html" class="logo-title">
+                    </a>
                 </div>
 
                 <div class="searchnews">
@@ -31,12 +32,11 @@
             <p>Do you have an interesting story to share? The world is waiting to read your story. Post your story for people to read.</p>
             
             <div class="allnews-wrapper"></div>
-            
-            
-            <!-- News Pagination -->
+
+           <!-- News Pagination -->
             <div class="pagination">
-                <span class="text-dim"><< Previous</span>
-                <span class="text-dim">Next >></span>
+                <button type="button" class="style--btn" id="previous-btn" onclick="getAllNews()">Previous</button>
+                <button type="button" class="style--btn" id="next-btn" onclick="getAllNews()">Next</button>
             </div>
         </main>
     </div>

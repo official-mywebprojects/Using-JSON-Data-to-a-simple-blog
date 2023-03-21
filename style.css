@@ -76,8 +76,8 @@ h6{
 }
 
 .nav-wrapper{
-    width: 80%;
-    margin-left: 10%;
+    width: 70%;
+    margin-left: 15%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -86,12 +86,12 @@ h6{
 .choose--avatar{
     width: 100%;
     display: inline-block;
-    margin: 1.3em 0;
+    margin: var(--sfnt) 0;
 }
 
 .searchnews{
     width: 600px;
-    height: 30px;
+    height: 45px;
     display: flex;
     justify-content: start;
     align-items: center;
@@ -112,16 +112,17 @@ h6{
 }
 
 .addnews-btn,
+.addnews-btn a,
 button.submit-btn{
     cursor: pointer;
     background: rgb(219, 38, 137);
-    font-size: var(--sfnt);
+    font-size: 1.15em;
     font-weight: 600;
-    padding: var(--xsfnt) var(--lgfnt);
+    padding: 10px;
     margin: var(--sfnt) 0;
     border-radius: var(--rd-md);
     border: none;
-    color: var(--background-lgt);
+    color: hsl(var(--background-lgt));
 }
 
 .center-main{
@@ -130,6 +131,9 @@ button.submit-btn{
     margin: 8% auto;
 }
 
+.form-update{
+    display: none;
+}
 
 .allnews-wrapper, 
 .pagination{
@@ -140,8 +144,6 @@ button.submit-btn{
     padding: var(--sfnt);
     border-bottom: var(--box-shadow-sm);
 }
-
-.pagination{display: none;}
 
 .newstemplate{
     display: grid;
@@ -186,11 +188,26 @@ button.submit-btn{
     height: 35px;
 }
 
-.avatar{
+.avatar, 
+.news-actions{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(30px, 1fr));
     gap: var(--sfnt) var(--mdfnt);
+    align-items: start;
 }
+
+#commentBox{
+    display: grid;
+    gap: var(--xsfnt);
+}
+
+.avatar--author{
+    display: grid;
+    grid-template-columns: 1fr 10fr;
+    gap: var(--sfnt) 0;
+    align-items: start;
+}
+
 
 .author--avatar{
     width: 50px;
@@ -221,14 +238,31 @@ button.submit-btn{
     font-weight: 600;
 }
 
+.news-author:hover{
+    text-decoration: underline;
+}
+
 .news-comment{
-    background: hsl(var(--background-drk));
+    width: max-content;
+    background: hsl(var(--accent-color));
     border-radius: var(--rd-sm);
     padding: var(--xsfnt);
     margin: var(--xsfnt);
     color: hsl(var(--background-lgt));
     font-size: var(--xsfnt);
     font-weight: 600;
+}
+
+.news-comment:hover,
+.news-comment:hover a{
+    color: hsl(var(--background-lgt));
+    transition: var(--effect);
+    transform: scale(1.01);
+    text-decoration: none;
+}
+
+.news-comment > a{
+    color: hsl(var(--background-lgt));
 }
 
 .pages{
@@ -241,10 +275,17 @@ button.submit-btn{
 }
 
 .news-title:hover, 
-a:hover,
-a:focus, 
+/* a:hover,
+a:focus,  */
 .span--accent{
     color: rgb(219, 38, 137);
+}
+
+button:hover,
+[type="button"]:hover{
+    transition: var(--effect);
+    transform: scale(0.9);
+    color: hsl(var(--text));
 }
 
 .addnews-btn:hover,
@@ -252,13 +293,15 @@ button.submit-btn:hover,
 .pages:hover{
     cursor: pointer;
     background: rgb(219, 38, 137);
-    font-size: var(--sfnt);
+    font-size: 1.15em;
     font-weight: 600;
-    padding: var(--xsfnt) var(--lgfnt);
+    padding: 10px;
+    transition: var(--effect);
+    transform: scale(1.02);
     margin: var(--sfnt) 0;
     border-radius: var(--rd-md);
     border: none;
-    color: var(--background-lgt);
+    color: hsl(var(--background-lgt));
 }
 
 .comment-box{
@@ -305,4 +348,54 @@ textarea:active,
     max-width: 700px;
     margin: 3em 0;
     height: auto;
+}
+
+
+
+
+@media only screen and(min-width: 849px){
+    .addnews-btn,
+    .addnews-btn a{
+        cursor: pointer;
+        background: rgb(219, 38, 137);
+        font-size: 1.15em;
+        font-weight: 700;
+        padding: 10px;
+        width: 150px;
+        text-align: center;
+    } 
+    
+    .searchnews{
+        width: 300px;
+    }
+}
+
+.style--btn{
+    display: block;
+    background: hsl(var(--accent-color));
+    color: hsl(var(--background-lgt));
+    padding: var(--xsfnt);
+    font-size: var(--sfnt);
+    border-radius: var(--rd-md);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+
+@media only screen and(min-width: 1148px){
+    .addnews-btn,
+    .addnews-btn a{
+        cursor: pointer;
+        background: rgb(219, 38, 137);
+        font-size: 1.15em;
+        font-weight: 700;
+        padding: 10px;
+        width: 150px;
+        text-align: center;
+    }
+
+    .searchnews{
+        width: 300px;
+        padding-left: 0;
+    }
 }

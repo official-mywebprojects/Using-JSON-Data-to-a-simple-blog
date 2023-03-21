@@ -1,5 +1,8 @@
-const formelement = document.querySelector('.form');
+//Getting News Comment Data
+const formComment = document.querySelector(".form-comment");
 fetchAvatar = localStorage.getItem('storedavatar');
+fetchId = localStorage.getItem('newsId');
+console.log("ID:", fetchId);
 
 
 //Selecting author avatar
@@ -13,8 +16,8 @@ const avatars = async () => {
     }
     const data = await response.json();
     data.map((each) => {
-        const { avatar, id } = each;
-        getavatar.appendChild(eachAvatar(avatar, id));
+        const { avatar } = each;
+        getavatar.appendChild(eachAvatar(avatar));
     })
     return data;
 
@@ -45,33 +48,32 @@ avatars();
 
 
 //get form data
-formelement.addEventListener('submit', (e) => {
+formComment.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    const getData = new FormData(formelement);
+    const getData = new FormData(formComment);
     const formdata = Object.fromEntries(getData);
 
-    console.log("Consoling...", `"${formdata.author}"`);
-    // getData.set('avatar', fetchAvatar);
-    // console.log("The Fetched data", fetchAvatar);
+    getData.set("avatar", fetchAvatar);
+    console.log("Form data avatar", fetchAvatar);
     console.log("Form data", formdata);
     
 
     //POST News to JSON Server
-    fetch(`${news}`, {
+    fetch(`${news}/${fetchId}/comments`, {
         method: 'POST',
         body: JSON.stringify({
-            author: formdata.author,
-            avatar: "",
-            title: formdata.title,
-            url: formdata.url
+            newsId: fetchId,
+            name: formdata.name,
+            avatar: fetchAvatar,
+            comment: formdata.comment
         }),
         headers: {
             'Content-Type': 'application/json',
         },
     })
      .then(response => response.json())
-     .then(formdata => console.log(formdata))
+     .then(formdata => console.log("Comment added!...", formdata))
      .catch(err => ("Failed to add news", err));
 });
 
